@@ -90,7 +90,7 @@ export default {
         this.wonMultiplier = this.multiplier
       }
       if (this.status === 'countdown' && this.bet === 0) {
-        if (document.getElementById('betInput').value < this.balance && document.getElementById('betInput').value > 0) {
+        if (document.getElementById('betInput').value <= this.balance && document.getElementById('betInput').value > 0) {
           this.bet = document.getElementById('betInput').value
           this.balance -= this.bet
           this.ws.send(JSON.stringify({ operation: 'betPlaced', value: this.bet }))
